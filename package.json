@@ -1,0 +1,15 @@
+{
+  "name": "frontend-starterpack-shaamil101",
+  "version": "1.0.0",
+  "description": "*description*",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.2.8"
+  }
+}
