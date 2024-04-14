@@ -27,4 +27,5 @@
         "no-trailing-spaces": "off",
         "indent": "off",
         "no-plusplus":"off"
-    }}
+    }
+    }
