@@ -8,6 +8,7 @@
         "ecmaVersion": 2023
     },
     "rules": {
+        "no-param-reassign": [ "error", { "props": false } ],
         "strict": 0,
         "quotes": [2, "single"],
         "no-else-return": 0,
@@ -25,7 +26,7 @@
         "no-debugger": "warn",
         "import/newline-after-import": "off",
         "no-trailing-spaces": "off",
-        "indent": "off",
+        "indent": "error",
         "no-plusplus":"off",
         "react/jsx-uses-react": 2,
         "react/jsx-uses-vars": 2,
