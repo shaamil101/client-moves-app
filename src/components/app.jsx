@@ -4,23 +4,27 @@ import { createRoot } from 'react-dom/client';
 import {
   BrowserRouter, Routes, Route, NavLink,
 } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Posts from './Posts';
 import NewPost from './NewPost';
 import Post from './Post';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div>
-        <Nav />
-        <Routes>
-          <Route path="/" element={<Posts />} />
-          <Route path="/posts/new" element={<NewPost />} />
-          <Route path="/posts/:postID" element={<Post />} />
-          <Route path="*" element={<div>post not found</div>} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <div className="Toast">
+      <ToastContainer />
+      <BrowserRouter>
+        <div>
+          <Nav />
+          <Routes>
+            <Route path="/" element={<Posts />} />
+            <Route path="/posts/new" element={<NewPost />} />
+            <Route path="/posts/:postID" element={<Post />} />
+            <Route path="*" element={<div>post not found</div>} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </div>
   );
 }
 
