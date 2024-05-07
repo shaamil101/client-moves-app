@@ -1,11 +1,13 @@
 import { create } from 'zustand';
 import axios from 'axios';
+import { devtools } from 'zustand/middleware';
+import { toast } from 'react-toastify';
 
 const API_URL = 'https://platform.cs52.me/api/posts';
 const API_KEY = '?key=s_shawalem'; // Replace with your actual API key
 
 // Used Github copilot to write out try and error blocks then changed them to git my code
-const useStore = create((set) => ({
+const useStore = create(devtools((set) => ({
   posts: [],
   currentPost: null,
 
@@ -27,6 +29,7 @@ const useStore = create((set) => ({
       return response.data;
     } catch (error) {
       console.error('Failed to fetch post:', error);
+      toast.error(`Failed to fetch post: ${error.message}`);
       set({ currentPost: null });
     }
   },
@@ -37,6 +40,7 @@ const useStore = create((set) => ({
       set((state) => ({ posts: [...state.posts, response.data] }));
     } catch (error) {
       console.error('Failed to create post:', error);
+      toast.error(`Failed to create post: ${error.message}`);
     }
   },
 
@@ -49,6 +53,7 @@ const useStore = create((set) => ({
       }));
     } catch (error) {
       console.error('Failed to update post:', error);
+      toast.error(`Failed to update post: ${error.message}`);
     }
   },
 
@@ -58,8 +63,10 @@ const useStore = create((set) => ({
       set((state) => ({ posts: state.posts.filter((p) => p.id !== id) }));
     } catch (error) {
       console.error('Failed to delete post:', error);
+      toast.error(`Failed to delete post: ${error.message}`);
     }
   },
-}));
+
+})));
 
 export default useStore;
